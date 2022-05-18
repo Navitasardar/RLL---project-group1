@@ -1,0 +1,42 @@
+<h1 style="background-color: greenyellow; text-align: center; font-family: Georgia, 
+'Times New Roman', Times, serif;">Please select location</h1>
+<div class="dropdown">
+    <button class="btn btn-warning dropdown-toggle" type="button" id="packlocation" data-toggle="dropdown">
+        Package Location</button>
+    <ul class="dropdown-menu">
+        <li><button class="dropdown-item" id="localpack" (click)="showLocalPackages()">Local</button></li>
+        <li><button class="dropdown-item" id="remotepack" (click)="showRemotePackages()">Remote</button></li>
+    </ul>
+</div><br>
+<h1 style="background-color: greenyellow; text-align: center; font-family: Georgia, 
+'Times New Roman', Times, serif;">Package Details</h1>
+
+<div style="text-align: center;">
+<table class="table table-dark table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Package Name</th>
+            <th>Starting Date</th>
+            <th>Package Vehicle</th>
+            <th>Trainer Name</th>
+            <th>Trainer Location</th>
+            <th>Trainer Experience(in years)</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let p of packages" class="container-fluid">
+        <tr>
+            <td>{{p.pname}}</td>
+            <td>{{p.pstartingdate}}</td>
+            <td>{{p.pvehicle}}</td>
+            <td>{{p.ptrainername}}</td>
+            <td>{{p.ptrainerlocation}}</td>
+            <td>{{p.ptrainerexp}}</td>
+            <td> <button routerLink="booksuccess" class="btn btn-success" id="book" (click)="book(this.p)">Book</button> </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div style="text-align: center; font-size: large; background-color: yellowgreen; font-family: Georgia, 'Times New Roman', Times, serif;">
+    <a routerLink="/studentlogin/studdash">Click here to go back to dashboard</a>
+</div>
+<router-outlet></router-outlet>

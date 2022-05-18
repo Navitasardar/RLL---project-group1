@@ -1,0 +1,25 @@
+<div class="jumbotron" style=" background: linear-gradient(to right, #ffccff 12%, #ffff99 105%);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Remove Student Details</h2>
+                <form [formGroup]="remForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Enter Student ID:</label>
+                        <input type="text" placeholder="ID" [(ngModel)]="students.sid" id="sid" formControlName="sid" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f['sid'].errors}">
+
+                        <div *ngIf="submitted && f['sid'].errors" class="invalid-feedback">
+                            <div *ngIf="f['sid'].errors['required']" style="color: red;">
+                                Student ID Required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="removestudent">Remove Student Details</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div>
+    <button routerLink="addstudent" id="addstud" class="btn btn-warning mr-1">Add Student</button>
+    <button routerLink="editstudent" id="editstud" class="btn btn-warning mr-1">Edit Student Details</button>
+    <button routerLink="removestudent" id="remstud" class="btn btn-warning">Remove Student</button>
+</div>
+<router-outlet></router-outlet>
+
+<h1 style="background-color: greenyellow; text-align: center; font-family: Georgia, 
+'Times New Roman', Times, serif;">List of Students Enrolled</h1>
+
+<div style="text-align: center;">
+<table class="table table-dark table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student UserName</th>
+            <th>Student Age</th>
+            <th>Student Email</th>
+            <th>Student Password</th>
+            <th>Student Location</th>
+            <th>Package ID</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let s of students" class="container-fluid">
+        <tr>
+            <td>{{s.sid}}</td>
+            <td>{{s.sname}}</td>
+            <td>{{s.sage}}</td>
+            <td>{{s.semail}}</td>
+            <td>{{s.spassword}}</td>
+            <td>{{s.slocation}}</td>
+            <ng-container *ngFor="let i of s.pdetails | keyvalue">
+                <td *ngIf="i.key==='pid'">
+                    {{i.value}}
+                </td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div style="text-align: center; font-size: large; background-color: yellowgreen; font-family: Georgia, 'Times New Roman', Times, serif;">
+    <a routerLink="/adminlogin/adash">Click here to go back to dashboard</a>
+    <router-outlet></router-outlet>
+</div>

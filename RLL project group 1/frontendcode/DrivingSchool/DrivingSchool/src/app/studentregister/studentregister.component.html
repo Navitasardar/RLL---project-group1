@@ -1,0 +1,73 @@
+<div class="jumbotron" style=" background: linear-gradient(to right, #ffccff 12%, #ffff99 105%);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Student Registration</h2>
+                <form [formGroup]="regstdForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Enter Student Name:</label>
+                        <input type="text" placeholder="Name" [(ngModel)]="student.sname" id="sname" formControlName="sname" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f['sname'].errors}">
+
+                        <div *ngIf="submitted && f['sname'].errors" class="invalid-feedback">
+                            <div *ngIf="f['sname'].errors['required']" style="color: red;">
+                                Student Name Required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Student Age:</label>
+                        <input type="text" placeholder="Age" [(ngModel)]="student.sage" id="sage" formControlName="sage" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f['sage'].errors}">
+
+                        <div *ngIf="submitted && f['sage'].errors" class="invalid-feedback">
+                            <div *ngIf="f['sage'].errors['required']" style="color: red;">
+                                Student Age Required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Student Email:</label>
+                        <input type="text" placeholder="Email" [(ngModel)]="student.semail" id="semail" formControlName="semail" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f['semail'].errors}">
+
+                        <div *ngIf="submitted && f['semail'].errors" class="invalid-feedback">
+                            <div *ngIf="f['semail'].errors['required']" style="color: red;">
+                                Student Email Required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Student Password:</label>
+                        <input type="text" placeholder="Password" [(ngModel)]="student.spassword" id="spassword" formControlName="spassword" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f['spassword'].errors}">
+
+                        <div *ngIf="submitted && f['spassword'].errors" class="invalid-feedback">
+                            <div *ngIf="f['spassword'].errors['required']" style="color: red;">
+                                Student Password Required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Student Location:</label>
+                        <input type="text" placeholder="Location" [(ngModel)]="student.slocation" id="slocation" formControlName="slocation" class="form-control"
+                            [ngClass]="{'is-invalid':submitted && f['slocation'].errors}">
+
+                        <div *ngIf="submitted && f['slocation'].errors" class="invalid-feedback">
+                            <div *ngIf="f['slocation'].errors['required']" style="color: red;">
+                                Student Location Required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="regstudent">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="r==true;">
+    <h2 style="background-color: burlywood; text-align: center; font-family: Georgia, 
+    'Times New Roman', Times, serif;"> Registered successfully, Please login </h2>
+</div>

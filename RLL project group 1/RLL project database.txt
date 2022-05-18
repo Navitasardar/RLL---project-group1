@@ -1,0 +1,145 @@
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 49
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| drivingschool      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.04 sec)
+
+mysql> use drivingschool;
+Database changed
+mysql> show tables;
++-------------------------+
+| Tables_in_drivingschool |
++-------------------------+
+| admin                   |
+| package_details         |
+| students                |
++-------------------------+
+3 rows in set (0.00 sec)
+
+mysql> describe admin;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| aid       | int          | NO   | PRI | NULL    | auto_increment |
+| aemail    | varchar(255) | YES  |     | NULL    |                |
+| aname     | varchar(255) | YES  |     | NULL    |                |
+| apassword | varchar(255) | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> describe package_details;
++--------------------+--------------+------+-----+---------+----------------+
+| Field              | Type         | Null | Key | Default | Extra          |
++--------------------+--------------+------+-----+---------+----------------+
+| pid                | int          | NO   | PRI | NULL    | auto_increment |
+| pname              | varchar(255) | YES  |     | NULL    |                |
+| pstartingdate      | datetime(6)  | YES  |     | NULL    |                |
+| pstudentattendance | varchar(255) | YES  |     | NULL    |                |
+| ptrainerexp        | int          | NO   |     | NULL    |                |
+| ptrainerlocation   | varchar(255) | YES  |     | NULL    |                |
+| ptrainername       | varchar(255) | YES  |     | NULL    |                |
+| pvehicle           | varchar(255) | YES  |     | NULL    |                |
++--------------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> describe students;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| sid       | int          | NO   | PRI | NULL    | auto_increment |
+| sage      | varchar(255) | YES  |     | NULL    |                |
+| semail    | varchar(255) | YES  |     | NULL    |                |
+| slocation | varchar(255) | YES  |     | NULL    |                |
+| sname     | varchar(255) | YES  |     | NULL    |                |
+| spassword | varchar(255) | YES  |     | NULL    |                |
+| pid       | int          | YES  | MUL | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> select
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    -> * from admin;
++-----+--------------------+-----------------+------------+
+| aid | aemail             | aname           | apassword  |
++-----+--------------------+-----------------+------------+
+|   1 | navita@gmail.com   | Navita Sardar   | navita1234 |
+|   2 | virendra@gmail.com | Virendra Tiwari | tiwari1234 |
++-----+--------------------+-----------------+------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from package_details;
++-----+----------+----------------------------+--------------------+-------------+------------------+--------------+----------+
+| pid | pname    | pstartingdate              | pstudentattendance | ptrainerexp | ptrainerlocation | ptrainername | pvehicle |
++-----+----------+----------------------------+--------------------+-------------+------------------+--------------+----------+
+|   1 | package1 | 0022-05-08 05:30:00.000000 | present            |          10 | local            | amit         | skoda    |
+|   2 | package2 | 0022-05-09 05:30:00.000000 | present            |          10 | local            | Harish       | maruti   |
++-----+----------+----------------------------+--------------------+-------------+------------------+--------------+----------+
+2 rows in set (0.01 sec)
+
+mysql> select * from students;
++-----+------+------------------------+-----------+----------------------+-------------+------+
+| sid | sage | semail                 | slocation | sname                | spassword   | pid  |
++-----+------+------------------------+-----------+----------------------+-------------+------+
+|   1 | 22   | navya@gmail.com        | local     | Navya Sardar         | sardar123   |    1 |
+|   2 | 23   | kalyan@gmail.com       | local     | pavankalyan          | pavan123    |    2 |
+|   3 | 23   | pranathi@gmail.com     | local     | kummari pranathi     | pranathi123 |    1 |
+|   4 | 23   |  shivani@gmail.com     | local     | kolikacharla shivani | shivani123  |    2 |
+|   5 | 23   | ashwini@gmail.com      | local     | Ashwini Patil        | patil123    |    1 |
+|   6 | 23   | renuka@gmail.com       | local     | Renuka Umale         | umale123    |    2 |
+|   7 | 23   | abhijeetkale@gmail.com | local     | Abhijeet Kale        | kale123     |    1 |
+|   8 | 23   | sathish@gmail.com      | local     | Vallamdas Sathish    | sathish123  |    2 |
+|   9 | 23   | sunil@gmail.com        | local     | Sunil Kumar          | sunil123    |    2 |
++-----+------+------------------------+-----------+----------------------+-------------+------+
+9 rows in set (0.01 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
